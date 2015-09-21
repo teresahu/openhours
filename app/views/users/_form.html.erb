@@ -1,0 +1,48 @@
+<%= render 'layouts/errors', object: @user %>
+
+<div class="row">
+
+    <%= form_for @user do |f| %>
+      <div class="form-group">
+        <div class="col-sm-2 col-sm-offset-1">
+          <%= f.label :first_name, class: 'required' %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :first_name, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-2 col-sm-offset-1">
+          <%= f.label :last_name, class: 'required' %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :last_name, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-2 col-sm-offset-1">
+          <%= f.label :email, class: 'required' %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-2 col-sm-offset-1">
+          <%= f.label :location, class: 'required' %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :location, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-3 col-sm-offset-3">
+          <%= f.submit(@user.new_record? ? 'Register' : 'Update Profile', class: 'btn btn-success') %>
+        </div>
+      </div>
+      <% end %>
+</div>
