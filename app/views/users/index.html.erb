@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <%= image_tag(u.picture.url, size:"200", class: "gravatar") if u.picture? %>
-      <h5><%#= u.first_name %> <%#= u.last_name %></h5>
+      <h5><%= u.first_name %> <%= u.last_name %></h5>
     </div>
   </div>
 <% end %>
