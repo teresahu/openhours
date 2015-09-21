@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :location, presence: true
   mount_uploader :picture, PictureUploader
   validate :picture_size
+  default_scope -> { order(updated_at: :desc) }
 
   private
     def picture_size
@@ -16,4 +17,10 @@ class User < ActiveRecord::Base
         errors.add(:picture, "should be less than 5MB")
       end
     end
+
+    # def set_default_pic
+    #   unless self.picture?
+    #     self.picture = User.
+    #   end
+    # end
 end
