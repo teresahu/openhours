@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Image uploading
+gem 'carrierwave', '0.10.0'
+gem 'mini_magick', '3.8.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record

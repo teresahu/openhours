@@ -9,8 +9,8 @@
 <% @users.each do |u| %>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <%#= link_to gravatar_for(u, size: 200), user_path(u) %>
-      <h5><%= u.first_name %> <%= u.last_name %></h5>
+      <%= image_tag(u.picture.url, size:"200", class: "gravatar") if u.picture? %>
+      <h5><%#= u.first_name %> <%#= u.last_name %></h5>
     </div>
   </div>
 <% end %>

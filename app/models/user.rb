@@ -7,4 +7,13 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 105 },
             uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
   validates :location, presence: true
+  mount_uploader :picture, PictureUploader
+  validate :picture_size
+
+  private
+    def picture_size
+      if picture.size > 5.megabytes
+        errors.add(:picture, "should be less than 5MB")
+      end
+    end
 end

@@ -80,4 +80,19 @@ label {
 
 .required {
   color: #CA3C1D;
+  font-weight: bold;
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.gravatar {
+  border-radius: 10px;
 }
