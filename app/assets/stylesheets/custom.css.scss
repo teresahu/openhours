@@ -82,6 +82,9 @@ label {
   color: #CA3C1D;
   font-weight: bold;
 }
+.required::after {
+  content: "*";
+}
 
 span.picture {
   margin-top: 10px;
@@ -95,4 +98,23 @@ span.picture {
 
 .gravatar {
   border-radius: 6px;
+}
+
+.starttime {
+  position: relative;
+  top: 50%;
+  transform: translateY(100%);
+  display: block;
+}
+
+.links {
+  ul {
+    list-style-type: none;
+  }
+  li {
+    display: inline;
+    margin: 5px;
+  }
+  margin-top: 10px;
+  text-align: center;
 }

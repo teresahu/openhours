@@ -1,7 +1,6 @@
 <%= render 'layouts/errors', object: @user %>
 
 <div class="row">
-
     <%= form_for(@user, html: { multipart: true }) do |f| %>
       <div class="form-group">
         <div class="col-sm-2 col-sm-offset-1">
@@ -47,6 +46,42 @@
         </div>
         <div class="col-sm-8">
           <%= f.text_field :location, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-2 col-sm-offset-1">
+          <%= f.label :headline unless @user.new_record? %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :headline, class: 'form-control'  unless @user.new_record? %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-2 col-sm-offset-1">
+          <%= f.label :linkedin unless @user.new_record? %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :linkedin, class: 'form-control'  unless @user.new_record? %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-2 col-sm-offset-1">
+          <%= f.label :skype unless @user.new_record? %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :skype, class: 'form-control'  unless @user.new_record? %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-2 col-sm-offset-1">
+          <%= f.label :hangouts unless @user.new_record? %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :hangouts, class: 'form-control'  unless @user.new_record? %>
         </div>
       </div>
 

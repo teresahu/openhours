@@ -4,11 +4,29 @@
   <div class="col-md-4">
     <%= image_tag(@user.picture.url, size: "300", class: "gravatar") if @user.picture? %>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-5">
     <h2 class="left"><%= @user.headline %></h2>
     <strong><%= @user.location %></strong>
   </div>
-  <div class="col-md-2">
-    <%= link_to "Edit profile", edit_user_path(@user.id), class: "btn btn-success btn-small" %>
+  <div class="col-md-3">
+    <%= link_to "New open hours", new_appointment_path, class: "btn btn-success btn-small" %>
+    <%= link_to "Edit profile", edit_user_path(@user.id), class: "btn btn-warning btn-small" %>
+  </div>
+</div>
+
+<div class="row links">
+  <div class="col-md-3">
+    <ul>
+      <li><%= link_to '<i class="fa fa-github-alt fa-3x"></i>'.html_safe, @user.github if @user.github %></li>
+      <li><%= link_to '<i class="fa fa-linkedin fa-3x"></i>'.html_safe, @user.linkedin if @user.linkedin %></li>
+    </ul>
+  </div>
+
+  <div class="col-md-8">
+    <ul>
+    <% @user.owned_appointments.each do |appt| %>
+      <li><%= link_to "#{appt.start_time}", reserve_path(appt), class: 'btn btn-small btn-success' %></li>
+    <% end %>
+    </ul>
   </div>
 </div>

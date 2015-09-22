@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :owned_appointments, :class_name => "Appointment", :foreign_key => "owner_id"
+  has_many :reserved_appointments, :class_name => "Appointment", :foreign_key => "reserved_user_id"
   before_save { self.email = email.downcase }
   before_save { self.last_name.length == 1 ? self.last_name = self.last_name + "." : self.last_name = self.last_name }
   validates :first_name, presence: true, length: { minimum: 2, maximum: 20 }

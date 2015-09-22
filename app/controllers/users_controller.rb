@@ -34,6 +34,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def reserve_appointment
+    @current_user = User.find(2)
+    appointment = Appointment.find(params[:id])
+    @current_user.reserved_appointments.push(appointment)
+    if @current_user.save
+      flash[:success] = "Your appointment has been successfully requested."
+      render user_path(appointment.owner)
+    else
+      flash[:success] = "Something went wrong."
+      render user_path(appointment.owner)
+    end
+  end
+
   private
     def user_params
       params.require(:user).permit(:picture, :first_name, :last_name, :email, :headline, :location, :url, :github, :skype, :linkedin, :hangouts)
@@ -42,5 +55,4 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
     end
-
 end
