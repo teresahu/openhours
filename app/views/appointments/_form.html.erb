@@ -4,35 +4,35 @@
     <%= form_for @appointment do |f| %>
       <div class="form-group">
         <div class="col-sm-2 col-sm-offset-1">
-          <%= f.label :form, 'Format', class: 'required' %>
+          <%= f.label :format, class: 'required' %>
         </div>
-        <div class="col-sm-8">
-          <%= f.select :format, options_for_select([["Online", "online"], ["In-person", "in-person"]]) %>
+        <div class="col-sm-9">
+          <%= f.select :format, options_for_select([["Online", "online"], ["In-person", "in-person"]]), class: "form-control" %>
         </div>
       </div>
-
+      <div class="clear"></div>
       <div class="form-group">
         <div class="col-sm-2 col-sm-offset-1">
           <%= f.label :start_time, class: 'required' %>
         </div>
-        <div class="col-sm-8 starttime">
+        <div class="col-sm-9">
           <%= f.datetime_select :start_time, class: "form-control" %>
         </div>
       </div>
-
+      <div class="clear"></div>
       <div class="form-group">
         <div class="col-sm-2 col-sm-offset-1">
           <%= f.label :end_time, class: 'required' %>
         </div>
-        <div class="col-sm-8 starttime">
+        <div class="col-sm-9">
           <%= f.datetime_select :end_time, class: "form-control" %>
         </div>
       </div>
-
+      <div class="clear"></div>
       <div class="form-group">
-        <div class="col-sm-3 col-sm-offset-6">
+        <div class="col-sm-3 col-sm-offset-3">
           <%= f.submit 'Create open hours', class: 'btn btn-success' %>
         </div>
       </div>
-      <% end %>
-</div>
+    <% end %>
+  </div>

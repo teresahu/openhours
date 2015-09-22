@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#home'
   get '/home', to: 'pages#home'
-  post '/users/reserve/:id', to: 'users#reserve_appointment', as: 'reserve'
+  get '/users/reserve/:id', to: 'users#reserve_appointment', as: 'reserve'
   # get '/hours', to: 'users#index'
   # get '/hours/:id', to: 'users#show'
   resources :users, except: [:delete]

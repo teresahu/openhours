@@ -60,6 +60,15 @@
 
       <div class="form-group">
         <div class="col-sm-2 col-sm-offset-1">
+          <%= f.label :github unless @user.new_record? %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :github, class: 'form-control'  unless @user.new_record? %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-2 col-sm-offset-1">
           <%= f.label :linkedin unless @user.new_record? %>
         </div>
         <div class="col-sm-8">

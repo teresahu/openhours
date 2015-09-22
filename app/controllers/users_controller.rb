@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     before_action :set_user, only: [:edit, :update, :show]
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 4)
+    @users = User.paginate(page: params[:page], per_page: 8)
   end
 
   def show
@@ -39,11 +39,11 @@ class UsersController < ApplicationController
     appointment = Appointment.find(params[:id])
     @current_user.reserved_appointments.push(appointment)
     if @current_user.save
-      flash[:success] = "Your appointment has been successfully requested."
-      render user_path(appointment.owner)
+      flash[:success] = "Your appointment has been successfully booked."
+      redirect_to user_path(appointment.owner)
     else
       flash[:success] = "Something went wrong."
-      render user_path(appointment.owner)
+      redirect_to user_path(appointment.owner)
     end
   end
 
